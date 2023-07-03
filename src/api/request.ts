@@ -2,7 +2,7 @@ import axios from "axios"
 
 const request = axios.create({
   baseURL: "/api",
-  timeout: 10000
+  timeout: 20000
 })
 
 request.interceptors.request.use(config => {
@@ -10,7 +10,7 @@ request.interceptors.request.use(config => {
 })
 
 request.interceptors.response.use(response => {
-  return response
+  return response.data
 }, error => {
   return Promise.reject(new Error(error.message))
 })

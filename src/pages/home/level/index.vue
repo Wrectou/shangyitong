@@ -5,19 +5,26 @@
       <div class="left">等级:</div>
       <ul class="hospital">
         <li class="active">全部</li>
-        <li>三级甲等</li>
-        <li>三级甲等</li>
-        <li>三级甲等</li>
-        <li>三级甲等</li>
-        <li>三级甲等</li>
-        <li>三级甲等</li>
+        <li v-for="item in props.levelList" :key="item.value" >{{item.name}}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
+  interface HospitalLevelAndRegion {
+    "id": number,
+    "createTime": string,
+    "updateTime": string,
+    "isDeleted": number,
+    "param": {},
+    "parentId": number,
+    "name": string,
+    "value": string,
+    "dictCode": string,
+    "hasChildren": boolean
+  }
+  const props = defineProps<{levelList: HospitalLevelAndRegion[]}>()
 </script>
 
 <style scoped lang="scss">

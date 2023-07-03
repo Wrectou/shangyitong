@@ -15,11 +15,28 @@
 </template>
 
 <script setup lang="ts">
-import request from "@/api/request"
+// import request from "@/api/request"
 
-request.get("/hosp/hospital/1/10")
+import { getHospitalList } from "@/api/home/index"
+
+// request.get("/hosp/hospital/1/10")
+// request.get("cmn/dict/findByDictCode/HosType", {{aa:'11'}})
+//   .then(res => {
+//     console.log(res);
+//   })
+
+// getHospitalLevel("HosType")
+//   .then(res => {
+//     console.log(res);
+//   }, err => {
+//     console.log(err);
+//   })
+
+getHospitalList(1, 10, {aa: "111"})
   .then(res => {
     console.log(res);
+  }, err => {
+    console.log(err);
   })
 
 </script>
